@@ -429,17 +429,24 @@ class Game {
         gameOverScreen.innerHTML = `
             GAME OVER<br>
             Time: ${this.gameTime} seconds<br>
-            <span style="font-size: 24px; margin-top: 20px; display: block;">
-                Press SPACE to restart
-            </span>
+            <button style="
+                font-size: 24px;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            ">
+                Press Here to restart
+            </button>
         `;
         this.gameArea.appendChild(gameOverScreen);
 
-        // Add restart listener
-        document.addEventListener('keydown', (e) => {
-            if (e.code === 'Space' && this.isGameOver) {
-                location.reload();
-            }
+        // Add click listener to the button
+        gameOverScreen.querySelector('button').addEventListener('click', () => {
+            location.reload();
         });
     }
 }
